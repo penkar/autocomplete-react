@@ -49,8 +49,17 @@ var exampleData = {
 
 var List = React.createClass({
 	displayName: 'List',
+	getInitialState: function(){
+		return (exampleData)
+	},
 	render: function(){
-		return ( React.createElement('div', null, 'Things') );
+		var options = [];
+		var data = this.state.titles;
+		console.log(this.state);
+		for(var i =0, iLen = data.length; i < iLen; i++ ){
+			options.push(React.createElement('option', {value: data[i]}, data[i]))
+		}
+		return ( React.createElement('select', null, options) );
 	}
 })
 
