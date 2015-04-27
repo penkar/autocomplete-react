@@ -47,26 +47,17 @@ var exampleData = {
 	]
 }
 
-var List = React.createClass({
-	displayName: 'List',
-	getInitialState: function(){
-		return (exampleData)
-	},
+var Title = React.createClass({
+	displayName: 'Title',
 	render: function(){
-		var options = [];
-		var data = this.state.titles;
-		for(var i =0, iLen = data.length; i < iLen; i++ ){
-			var val = data[i];
-			options.push(React.createElement( ListItem {val:val, key:val} )
-		}
-		return ( 
-			React.createElement('div', null,
-				React.createElement('input', null),
-				React.createElement('select', null, options) 
-			)
-		);
+		return React.createElement('div', {onClick: this._titleClick}, this.props.title)
+	},
+	_titleClick: function(){
+		console.log(this.props)
+		// this.props._titleClick(this.props.title);
 	}
 })
+
 
 var ListItem = React.createClass({
 	displayName: 'ListItem',
@@ -74,6 +65,48 @@ var ListItem = React.createClass({
 		return ( React.createElement('option', {value: this.props.val}, this.props.val) )
 	}
 })
+
+var List = React.createClass({
+	displayName: 'List',
+	getInitialState: function(){
+		return ({
+			titles: exampleData.titles,
+			current: ''
+
+		})
+	},
+	_titleClick: function(title){
+		console.log('title')
+		this.setState({
+			current:title
+		})
+	},
+	_onChange: function(event){
+		this.setState({
+			current:event.target.value
+		})
+	},
+	render: function(){
+		var opts = [], divs = [];
+		var data = this.state.titles;
+		var current = this.state.current || '';
+		data.filter(function(title){
+			if(title.toLowerCase().indexOf(current) !== -1){
+				opts.push(React.createElement( ListItem, { val:title, key:title }) )
+				divs.push(React.createElement( Title, { title:title, key:title, _titleClick:this._titleClick }) );
+			}
+		})
+		return ( 
+			React.createElement('div', null,
+				React.createElement('input', {className: 'autoComplete', onChange: this._onChange}),
+				React.createElement('br', null),
+				React.createElement('select', {className: 'autoComplete'}, opts),
+				divs 
+			)
+		);
+	}
+})
+
 
 
 // var List = require('./components/list.js')
