@@ -55,18 +55,23 @@ var List = React.createClass({
 	render: function(){
 		var options = [];
 		var data = this.state.titles;
-		console.log(this.state);
 		for(var i =0, iLen = data.length; i < iLen; i++ ){
-			options.push(React.createElement('option', {value: data[i]}, data[i]))
+			var val = data[i];
+			options.push(React.createElement( ListItem {val:val, key:val} )
 		}
-		return ( React.createElement('select', null, options) );
+		return ( 
+			React.createElement('div', null,
+				React.createElement('input', null),
+				React.createElement('select', null, options) 
+			)
+		);
 	}
 })
 
 var ListItem = React.createClass({
 	displayName: 'ListItem',
 	render: function(){
-		return ( React.createElement('div', null, 'ListItem') )
+		return ( React.createElement('option', {value: this.props.val}, this.props.val) )
 	}
 })
 
