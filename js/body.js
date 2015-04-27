@@ -50,20 +50,23 @@ var exampleData = {
 var Title = React.createClass({
 	displayName: 'Title',
 	render: function(){
-		return React.createElement('div', {onClick: this.titleClick}, this.props.title)
+		return React.createElement('div', {onClick: this.titleClick}, this.props.title);
 	},
 	titleClick: function(){
 		this.props.titleClick(this.props.title);
 	}
-})
+});
 
 
 var ListItem = React.createClass({
 	displayName: 'ListItem',
 	render: function(){
 		return ( React.createElement('option', {value: this.props.val}, this.props.val) )
-	}
-})
+	}//,
+	// titleClick: function(){
+	// 	this.props.titleClick(this.props.val);
+	// }
+});
 
 var List = React.createClass({
 	displayName: 'List',
@@ -72,7 +75,7 @@ var List = React.createClass({
 			titles: exampleData.titles,
 			current: ''
 
-		})
+		});
 	},
 	titleClick: function(title){
 		this.setState({
@@ -82,7 +85,7 @@ var List = React.createClass({
 	_onChange: function(event){
 		this.setState({
 			current:event.target.value
-		})
+		});
 	},
 	render: function(){
 		document.aaa = this;
@@ -90,22 +93,23 @@ var List = React.createClass({
 		var data = this.state.titles;
 		var current = this.state.current.toLowerCase() || '';
 		var titleClick = this.titleClick;
+		var _onChange = this.onChange
 		data.filter(function(title){
 			if(title.toLowerCase().indexOf(current) !== -1){
 				opts.push(React.createElement( ListItem, { val:title, key:title }) )
-				divs.push(React.createElement( Title, { titleClick:titleClick, title:title }) );
+				divs.push(React.createElement( Title,    { titleClick:titleClick, title:title }) );
 			}
-		})
+		});
 		return ( 
 			React.createElement('div', null,
-				React.createElement('input', {value: this.state.current, className: 'autoComplete', onChange: this._onChange}),
+				React.createElement('input', {value: this.state.current, className: 'autoComplete'}),
 				React.createElement('br', null),
-				React.createElement('select', {className: 'autoComplete'}, opts),
+				React.createElement('select', {className: 'autoComplete', onChange: this._onChange}, opts),
 				divs 
 			)
 		);
 	}
-})
+});
 
 
 
@@ -116,11 +120,11 @@ var Body = React.createClass({
 	render: function(){
 		return(
 			React.createElement(List, null)
-		)
+		);
 	}
-})
+});
 
 React.render(
 	React.createElement(Body, null),
 	document.getElementById('mount')
-)
+);
