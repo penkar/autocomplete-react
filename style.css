@@ -1,4 +1,10 @@
+.obj{
+	width: 310px;
+	float: left;
+	display: inline;	
+}
+
 .autoComplete {
 	margin: 0px;
-	width: 200px;
+	width: 300px;
 }
