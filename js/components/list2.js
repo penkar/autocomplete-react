@@ -81,7 +81,9 @@ var List2 = React.createClass({
 			}
 		});
 		return ( 
-			React.createElement('div', {className:'obj'},
+			React.createElement('div', {className:'pure-u-7-24'},
+				React.createElement('div', null, this.props.title),
+				React.createElement('br', null),
 				React.createElement('input', {value: this.state.current, className: 'autoComplete', onChange: this._onChange}),
 				React.createElement('br', null),
 				React.createElement('select', {className: 'autoComplete', onChange: this._onChange}, opts)

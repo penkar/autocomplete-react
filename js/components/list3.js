@@ -1,5 +1,3 @@
-var Title = require('./title.js');
-
 var exampleData = {
 	titles: [
 		'Mexican Black Bean Soup',
@@ -49,7 +47,20 @@ var exampleData = {
 	]
 }
 
-var List1 = React.createClass({
+var DivTitle = React.createClass({
+	displayName: 'DivTitle',
+	titleClick: function(){
+		console.log(this.props)
+		this.props.titleClick(this.props.title);
+	},
+	render: function(){
+		return (
+			React.createElement('div', {onClick: this.titleClick}, this.props.title)
+		)
+	}
+})
+
+var List3 = React.createClass({
 	displayName: 'List1',
 	getInitialState: function(){
 		return ({
@@ -76,8 +87,8 @@ var List1 = React.createClass({
 		var titleClick = this.titleClick;
 		var _onChange = this.onChange
 		data.filter(function(title){
-			if(title.toLowerCase().indexOf(current) !== -1){
-				divs.push(React.createElement( Title,    { titleClick:titleClick, title:title }) );
+			if(title.toLowerCase().indexOf(current) !== -1 && current){
+				divs.push(React.createElement(DivTitle, {title:title, titleClick:titleClick }) );
 			}
 		});
 		return ( 
@@ -85,11 +96,10 @@ var List1 = React.createClass({
 				React.createElement('div', null, this.props.title),
 				React.createElement('br', null),
 				React.createElement('input', {value: this.state.current, className: 'autoComplete', onChange: this._onChange}),
-				React.createElement('br', null),
-				divs 
+				React.createElement('div', {className:'drop'}, divs )
 			)
 		);
 	}
 });
 
-module.exports = List1
+module.exports = List3
