@@ -1,0 +1,56 @@
+.header{
+	font-size: 1.5em;
+	text-align: center;
+	margin: 15px 0px 15px 0px;
+}
+
+div{
+	margin: 0px 5px 0px 5px;
+}
+
+input{
+	border: 0px;
+}
+
+.obj{
+	float: left;
+	display: inline;	
+}
+
+.autoComplete {
+	margin: 0px;
+	width: 100%;
+}
+
+.drop{
+	top:29px;
+}
+
+html, body {
+	margin: 0px;
+	height: 100%;
+	background-color: rgb(222,222,222);
+}
+
+p{
+	text-align: center;
+	font-weight: bold;
+}
+
+.ex1, ex2, ex3{
+	min-height: 100%;
+}
+.title{
+	background-color: white;
+}
+.ex1{
+	background-color: rgb(232, 232, 232);
+}
+
+.ex2{
+	background-color: rgb(197, 197, 197);
+}
+
+.ex3{
+	background-color: rgb(177, 177, 177);
+}
