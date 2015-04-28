@@ -92,7 +92,7 @@ var List3 = React.createClass({
 			}
 		});
 		return ( 
-			React.createElement('div', {className:'pure-u-7-24'},
+			React.createElement('div', {className:'pure-u-7-24 ex3'},
 				React.createElement('div', null, this.props.title),
 				React.createElement('br', null),
 				React.createElement('input', {value: this.state.current, className: 'autoComplete', onChange: this._onChange}),

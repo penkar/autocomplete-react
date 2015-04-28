@@ -9,10 +9,12 @@ var Body = React.createClass({
 		return(
 			React.createElement('div', null, 
 				React.createElement(Header, null),
-				React.createElement('div', {className:'pure-g container'},
-					React.createElement(List1, {title: 'Clickable Divs that disappear as input filled in. ex 1'}),
-					React.createElement(List2, {title: 'Drop Down Menu Option. ex 2'}),
-					React.createElement(List3, {title: 'Clickable Divs that appear as input filled in. ex 3'})
+				React.createElement('div', {className:'container'},
+					React.createElement('div', {className:'pure-g'},
+						React.createElement(List1, {title: 'Clickable Divs that disappear as input filled in. ex 1'}),
+						React.createElement(List2, {title: 'Drop Down Menu Option. ex 2'}),
+						React.createElement(List3, {title: 'Clickable Divs that appear as input filled in. ex 3'})
+					)
 				)
 			)
 		);

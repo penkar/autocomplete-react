@@ -17,3 +17,21 @@
 .drop{
 	top:29px;
 }
+
+html, body {
+	margin: 0px;
+	height: 100%;
+	background-color: rgb(222,222,222);
+}
+
+.ex1{
+	background-color: rgb(164, 226, 195);
+}
+
+.ex2{
+	background-color: rgb(205, 223, 124);
+}
+
+.ex3{
+	background-color: rgb(224, 156, 115);
+}
