@@ -1,27 +1,24 @@
 {
-  "name": "chart-roulette",
+  "name": "Early-autocomplete-examples",
   "version": "0.0.1",
   "description": "Autocomplete in React",
   "repository": "https://github.com/penkar/autocomplete-react",
   "main": "js/body.js",
   "dependencies": {
-    "flux": "^2.0.0",
-    "keymirror": "~0.1.0",
-    "object-assign": "^1.0.0",
-    "react": "^0.12.0"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "webpack": "^4.6.0"
   },
   "devDependencies": {
-    "browserify": "^6.2.0",
-    "envify": "^3.0.0",
-    "jest-cli": "~0.1.17",
-    "reactify": "^0.15.2",
-    "uglify-js": "~2.4.15",
-    "watchify": "^2.1.1"
+    "webpack-cli": "^2.0.15"
   },
   "scripts": {
-    "start": "watchify -o js/bundle.js -v -d js/body.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
-    "test": "jest"
+    "start": "webpack --mode development"
   },
   "author": "Jeffrey Penkar",
   "browserify": {
