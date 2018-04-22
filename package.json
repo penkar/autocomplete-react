@@ -1,6 +1,6 @@
 {
   "name": "Early-autocomplete-examples",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Autocomplete in React",
   "repository": "https://github.com/penkar/autocomplete-react",
   "main": "js/body.js",
@@ -20,14 +20,5 @@
   "scripts": {
     "start": "webpack --mode development"
   },
-  "author": "Jeffrey Penkar",
-  "browserify": {
-    "transform": [
-      "reactify",
-      "envify"
-    ]
-  },
-  "jest": {
-    "rootDir": "./js"
-  }
+  "author": "Jeffrey Penkar"
 }

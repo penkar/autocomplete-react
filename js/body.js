@@ -1,27 +1,25 @@
-var Header = require('./components/header.js');
-var List1 = require('./components/list1.js');
-var List2 = require('./components/list2.js');
-var List3 = require('./components/list3.js');
+import React from 'react';
+import {render} from 'react-dom';
+import {List1} from './components/list1.js'
+import {List2} from './components/list2.js'
+import {List3} from './components/list3.js'
 
-var Body = React.createClass({
-	displayName: 'Body',
-	render: function(){
-		return(
-			React.createElement('div', null, 
-				React.createElement(Header, null),
-				React.createElement('div', {className:'container'},
-					React.createElement('div', {className:'pure-g'},
-						React.createElement(List1, {title: 'Clickable Divs that disappear filled. ex 1'}),
-						React.createElement(List2, {title: 'Drop Down Menu Option. ex 2'}),
-						React.createElement(List3, {title: 'Clickable Divs that appear filled in. ex 3'})
-					)
-				)
-			)
-		);
-	}
-});
+const Body = () => (
+	<div>
+		<div className='header'>
+			<div className='title'>React AutoComplete Examples</div>
+		</div>
+		<div className='container'>
+			<div className='pure-g'>
+				<List1 title='Clickable Divs that disappear filled. ex 1'/>
+				<List2 title='Drop Down Menu Option. ex 2'/>
+				<List3 title='Clickable Divs that appear filled in. ex 3'/>
+			</div>
+		</div>
+	</div>
+);
 
-React.render(
-	React.createElement(Body, null),
+render(
+	Body(),
 	document.getElementById('mount')
 );
