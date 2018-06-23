@@ -1,9 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {List1} from './components/list1.js'
-import {List2} from './components/list2.js'
-import {List3} from './components/list3.js'
-
+import {List1, List2, List3} from './components'
 const Body = () => (
 	<div>
 		<div className='header'>

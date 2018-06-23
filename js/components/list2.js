@@ -1,7 +1,6 @@
 import React from 'react';
 import {ExampleData} from './exampledata';
-
-class List2 extends React.Component {
+export default class List2 extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {current:''}
@@ -25,4 +24,3 @@ class List2 extends React.Component {
 	_titleClick = (current) => this.setState({current})
 	_onChange = ({target}) => this.setState({current: target.value})
 }
-export {List2};
