@@ -1,12 +1,12 @@
 import React from 'react';
-import {ExampleData} from './exampledata';
+import ExampleData from './exampledata';
 export default class List3 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {current:''};
 	}
 	render() {
-		let regex = new RegExp(this.state.current, 'i');
+		const regex = new RegExp(this.state.current, 'i');
 		return (
 			<div className='pure-u-7-24 ex3'>
 				<p>{this.props.title}</p>
@@ -15,13 +15,16 @@ export default class List3 extends React.Component {
 					{ ExampleData
 							.filter( title => (!!title.match(regex)))
 							.map( title => (
-								<div key={title} onClick={ () => this._titleClick(title) }>{title}</div>
+								<div key={title} data={title} onClick={this._titleClick}>{title}</div>
 							) )
 					}
 				</div>
 			</div>
 		)
 	}
-	_titleClick = (current) => this.setState({current})
-	_onChange = ({target}) => this.setState({current: target.value})
+	_titleClick = ({target}) => {
+		const current = target.getAttribute('data');
+		this.setState({current});
+	}
+	_onChange = ({target}) => this.setState({current: target.value});
 }

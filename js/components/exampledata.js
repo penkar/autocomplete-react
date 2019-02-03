@@ -1,4 +1,4 @@
-export const ExampleData = [
+const ExampleData = [
 	'Mexican Black Bean Soup',
 	'Eggplant Babakanoosh',
 	'Bathingan bel Khal Wel thome',
@@ -44,3 +44,4 @@ export const ExampleData = [
 	'Tzatziki Sauce (cucumber yogurt dip)',
 	'Whole Wheat Pita Chips'
 ]
+export default ExampleData

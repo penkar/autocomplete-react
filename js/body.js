@@ -16,7 +16,4 @@ const Body = () => (
 	</div>
 );
 
-render(
-	Body(),
-	document.getElementById('mount')
-);
+render( Body(), document.getElementById('mount') );
